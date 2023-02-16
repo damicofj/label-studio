@@ -38,7 +38,8 @@ schema_view = get_schema_view(
         title="Label Studio API",
         default_version='v' + versions['release'],
         contact=openapi.Contact(url="https://labelstud.io"),
-        x_logo={"url": "../../static/icons/logo-black.svg"}
+        # x_logo={"url": "../../static/icons/logo-black.svg"}
+        x_logo={"url": "https://kpulpo.com/logo-kpulpo-both-sym.svg"}
     ),
     public=True,
     permission_classes=(AllowAny,),
@@ -46,7 +47,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     re_path(r'^$', views.main, name='main'),
-    re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.ico', permanent=True)),
+    # re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.ico', permanent=True)),
+    re_path(r'^favicon\.ico$', RedirectView.as_view(url='https://kpulpo.com/logo-kpulpo-both-sym.svg', permanent=True)),
     re_path(r'^label-studio-frontend/(?P<path>.*)$', serve, kwargs={'document_root': settings.EDITOR_ROOT, 'show_indexes': True}),
     re_path(r'^dm/(?P<path>.*)$', serve, kwargs={'document_root': settings.DM_ROOT, 'show_indexes': True}),
     re_path(r'^react-app/(?P<path>.*)$', serve, kwargs={'document_root': settings.REACT_APP_ROOT, 'show_indexes': True}),
